@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests;
 use App\Project;
-use App\Team;
-use App\Feature;
-use Input;
 use Auth;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Input;
+use Session;
+use Redirect;
+
 class projectsController extends Controller
 {
     /**
@@ -24,7 +23,7 @@ class projectsController extends Controller
     {
         $projects = Project::all();
 
-         //=  Project::first()->teams()->get();
+        //=  Project::first()->teams()->get();
 
         return view('project.index')->withProjects($projects);
     }
@@ -42,46 +41,49 @@ class projectsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
 
     public function store(Request $request)
     {
         $project = new Project;
-        $project->title                       = Input::get('title');
-        $project->description                 = Input::get('description');
-        $project->project_status              = Input::get('project_status');
-        $project->architecture                = Input::get('architecture');
-        $project->platforms                   = Input::get('platforms');
+        $project->title = Input::get('title');
+        $project->description = Input::get('description');
+        $project->project_status = Input::get('project_status');
+        $project->architecture = Input::get('architecture');
+        $project->platforms = Input::get('platforms');
         $project->non_functional_requirements = Input::get('non_functional_requirements');
-        $project->due_date                    = Carbon::now();
-        $project->user_id                     = 1;
+        $project->due_date = Carbon::now();
+        $project->user_id = 1;
         //dd($project);
         $project->save();
 
-        return redirect()->route('project.index')->with('info','Your Project has been created successfully');
+        Session::flash('message', 'Successfully Added a New Project!');
+
+        return redirect()->route('project.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
+
         $projects = Project::findOrFail($id);
 
-         //=  Project::first()->teams()->get();
+        //=  Project::first()->teams()->get();
 
-        return view('project.show',compact('projects',$projects));
+        return view('project.show', compact('projects', $projects));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -89,44 +91,43 @@ class projectsController extends Controller
         $projects = Project::find($id);
 
 
-
         //=  Project::first()->teams()->get();
 
-        return view('project.edit',compact('projects',$projects));
+        return view('project.edit', compact('projects', $projects));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-
+    public function update($id, Request $request)
     {
 
-        Request::all();
+
         $project = Project::find($id);
-        $project->title                       = Input::get('title');
-        $project->description                 = Input::get('description');
-        $project->project_status              = Input::get('project_status');
-        $project->architecture                = Input::get('architecture');
-        $project->platforms                   = Input::get('platforms');
+        $project->title = Input::get('title');
+        $project->description = Input::get('description');
+        $project->project_status = Input::get('project_status');
+        $project->architecture = Input::get('architecture');
+        $project->platforms = Input::get('platforms');
         $project->non_functional_requirements = Input::get('non_functional_requirements');
-        $project->due_date                    = Carbon::now();
-        $project->user_id                     = 1;
-        dd($project);
+        $project->due_date = Carbon::now();
+        $project->user_id = 1;
+       // dd($project);
         $project->save();
 
-        Session::flash('message', 'Successfully updated nerd!');
-        return redirect()->route('project.index');
+        Session::flash('message', 'Successfully updated Project!');
+        return Redirect::back();
+        //return redirect()->route('project.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

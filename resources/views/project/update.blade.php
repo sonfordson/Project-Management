@@ -1,8 +1,15 @@
+
+    @if(Session::has('message'))
+        <p class="alert alert-success">{{ Session::get('message') }}</p>
+    @endif
+
 <div class="box box-info">
     <div class="box-header with-border">
         <h3 class="box-title btn btn-success">Update New Project</h3>
     </div>
-    <form class="form-horizontal" action="{{ route('project.update', $projects->id) }}"  method="PATCH">
+
+    <form class="form-horizontal" action="{{ route('project.update', ['project' => $projects->id]) }}"  method="POST">
+        <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="box-body">
             <div class="form-group">

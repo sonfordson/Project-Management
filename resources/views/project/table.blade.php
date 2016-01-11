@@ -32,8 +32,6 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="project/{{ $project->id }}/edit">Edit</a></li>
                                 <li><a href="project/{{ $project->id }}">Delete</a></li>
-
-
                             </ul>
                         </div></td>
 

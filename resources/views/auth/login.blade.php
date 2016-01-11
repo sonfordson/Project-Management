@@ -6,6 +6,11 @@
             <a href="#"><b>Project Management</b> Doctor</a>
         </div>
         <div class="login-box-body">
+
+            @if(Session::has('message'))
+                <p class="alert alert-success">{{ Session::get('message') }}</p>
+            @endif
+            
             <p class="login-box-msg">Sign in to start your session</p>
             <form action="/auth/login" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

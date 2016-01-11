@@ -24,7 +24,7 @@
 
                     <section class="col-lg-12 connectedSortable">
 
-                        @include('project.edit1')
+                        @include('project.update')
 
 
                     </section>
