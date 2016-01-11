@@ -9,7 +9,7 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
                 <div class="col-sm-10">
-                    <input type="text" name="title" class="form-control"   value="{!! $milestones->title!!} id="inputEmail3" placeholder="Title" >
+                    <input type="text" name="title" class="form-control"   value="{!! $milestones->title!!}" id="inputEmail3" placeholder="Title" >
                 </div>
             </div>
             <div class="form-group">
@@ -22,7 +22,7 @@
                 <label for="inputEmail3" class="col-sm-2 control-label">Milestone Status</label>
                 <div class="col-sm-10">
                     <select name="project_status"  class="form-control" id="status" value="">
-                        <option value="{!!$milestones->project_status !!}">{!! $milestones->project_status !!}</option>
+                        <option value="{!!$milestones->milestone_status !!}">{!! $milestones->milestone_status !!}</option>
                         <option value="Upcoming">Upcoming</option>
                         <option value="Active">Active</option>
                         <option value="Completed">Completed</option>
@@ -32,13 +32,13 @@
             <div class="form-group">
                 <label for="due-date" class="col-sm-2 control-label">Start date</label>
                 <div class="col-sm-10">
-                    <input type="date" name="start-date" class="form-control" value="{!! $milestones->start-date!!}" id="due-date">
+                    <input type="date" name="start-date" class="form-control" value="{!! $milestones->start_date!!}" id="due-date">
                 </div>
             </div>
             <div class="form-group">
                 <label for="due-date" class="col-sm-2 control-label">End date</label>
                 <div class="col-sm-10">
-                    <input type="date" name="end-date" class="form-control" id="due-date" value="{!! $milestones->end-date!!}">
+                    <input type="date" name="end-date" class="form-control" id="due-date" value="{!! $milestones->end_date!!}">
                 </div>
             </div>
         </div>
