@@ -30,8 +30,8 @@
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="project/{project}/edit">Edit</a></li>
-                                <li><a href="#">Delete</a></li>
+                                <li><a href="project/{{ $project->id }}/edit">Edit</a></li>
+                                <li><a href="project/{{ $project->id }}">Delete</a></li>
 
 
                             </ul>

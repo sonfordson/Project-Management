@@ -1,60 +1,44 @@
-<div class="box box-info">
-    <div class="box-header with-border">
-        <h3 class="box-title btn btn-success">Add New Project</h3>
-    </div>
-    <form class="form-horizontal" action="{{ route('project.update', $projects->id) }}" method="post">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <div class="box-body">
-            <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Status</label>
-                <div class="col-sm-10">
-                    <select name="project_status"  class="form-control" id="status" value="">
-                        <option value="{{  $projects->project_status }}">{{  $projects->project_status }}</option>
-                        {{ getStatus($projects->project_status) }}
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
-                <div class="col-sm-10">
-                    <input type="text" name="title" class="form-control" id="inputEmail3" placeholder="Title" value="{{ $projects->title }}" >
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
-                <div class="col-sm-10">
-                    <textarea type="text" name="description" class="form-control" id="inputPassword3" placeholder="Description" value="{{ $projects->description }}"></textarea>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Architecture</label>
-                <div class="col-sm-10">
-                    <input type="text" name="architecture" class="form-control" id="inputEmail3" placeholder="Architecture" value="{{ $projects->architecture }}">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Non-Fucntional </label>
-                <div class="col-sm-10">
-                    <input type="text" name="non_functional_requirements" class="form-control" id="inputEmail3" placeholder="Non Functional Requirement" value="{{ $projects->non_functional_requirements }}">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="platforms" class="col-sm-2 control-label">Platforms </label>
-                <div class="col-sm-10">
-                    <input type="text" name="platforms" class="form-control" id="platforms" placeholder="Platforms" value="{{ $projects->non_functional_requirementsplatforms }}">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="due-date" class="col-sm-2 control-label">Due date</label>
-                <div class="col-sm-10">
-                    <input type="date" name="due-date" class="form-control" id="due-date" value="{{ $projects->due_date }}">
-                </div>
-            </div>
+@extends('layouts.master')
 
+@section('content')
+    <div class="wrapper">
+        @include('layouts.partials.header')
+
+        @include('layouts.partials.sidebar')
+
+        <div class="content-wrapper">
+
+            <section class="content-header">
+                <h1>
+                    PROJECTS
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">Dashboard</li>
+                </ol>
+            </section>
+
+            <section class="content">
+
+                <div class="row">
+
+                    <section class="col-lg-12 connectedSortable">
+
+                        @include('project.edit1')
+
+
+                    </section>
+
+                </div>
+
+
+            </section>
+            <!-- /.content -->
         </div>
-        <div class="box-footer">
-            <button type="submit" class="btn btn-default">Cancel</button>
-            <button type="submit" class="btn btn-info pull-right">Create</button>
-        </div>
-    </form>
-</div>
+        <!-- /.content-wrapper -->
+        @include('layouts.partials.footer')
+
+    </div>
+
+@stop
+

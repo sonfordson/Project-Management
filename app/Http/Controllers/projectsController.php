@@ -88,6 +88,8 @@ class projectsController extends Controller
     {
         $projects = Project::find($id);
 
+
+
         //=  Project::first()->teams()->get();
 
         return view('project.edit',compact('projects',$projects));
@@ -101,7 +103,10 @@ class projectsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+
     {
+
+        Request::all();
         $project = Project::find($id);
         $project->title                       = Input::get('title');
         $project->description                 = Input::get('description');
@@ -111,7 +116,7 @@ class projectsController extends Controller
         $project->non_functional_requirements = Input::get('non_functional_requirements');
         $project->due_date                    = Carbon::now();
         $project->user_id                     = 1;
-        //dd($project);
+        dd($project);
         $project->save();
 
         Session::flash('message', 'Successfully updated nerd!');
@@ -126,6 +131,8 @@ class projectsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Project::find(1);
+        return view('project.index');
+
     }
 }
