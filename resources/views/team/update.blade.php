@@ -10,13 +10,13 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
                 <div class="col-sm-10">
-                    <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="Title">
+                    <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="Title" value="{!! $teams->name!!}">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
                 <div class="col-sm-10">
-                    <textarea type="text" name="roles" class="form-control" id="inputPassword3" placeholder="Description"></textarea>
+                    <textarea type="text" name="roles" class="form-control" id="inputPassword3" placeholder="Description" value="{!! $teams->roles!!}"></textarea>
                 </div>
             </div>
 
