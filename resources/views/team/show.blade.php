@@ -17,27 +17,38 @@
                     <li class="active">Dashboard</li>
                 </ol>
             </section>
-
             <section class="content">
+                <section class="content-header">
+                    <h1>
+                        PROJECT
+                        <small>List of all Teams</small>
+                    </h1>
 
-                <div class="row">
+                </section>
 
-                    <section class="col-lg-6 connectedSortable">
+                <!-- Main content -->
+                <section class="content">
 
-                        @include('project.table')
+                    <!-- Default box -->
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">   <h2><a href="#">{{ $teams->name }}</a></h2></h3>
+                            <div class="box-tools pull-right">
+                                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <h5 >{{ $teams->roles }}</h5>
+                        </div><!-- /.box-body -->
+                        <div class="box-footer">
+                            TEAM
+                        </div><!-- /.box-footer-->
+                    </div><!-- /.box -->
+                <br/>
+                 </section>
+                </section>
 
-                    </section>
-
-                    <section class="col-lg-6 connectedSortable">
-
-                        @include('project.form')
-
-                    </section>
-
-                </div>
-
-
-            </section>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->

@@ -68,7 +68,11 @@ class milestoneController extends Controller
      */
     public function show($id)
     {
-        //
+        $milestones = Milestone::findOrFail($id);
+
+        //=  Project::first()->teams()->get();
+
+        return view('milestone.show', compact('milestones', $milestones));
     }
 
     /**
@@ -79,7 +83,9 @@ class milestoneController extends Controller
      */
     public function edit($id)
     {
-        //
+        $milestones = Milestone::find($id);
+
+        return view('milestone.edit', compact('milestones', $milestones));
     }
 
     /**

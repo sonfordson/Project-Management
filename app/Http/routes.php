@@ -12,13 +12,13 @@ Route::resource('/project', 'projectsController');
 /**
  * routes for milestone
  */
-Route::get('/milestone/index' ,['as'=>'milestone.index', 'uses'=>'milestoneController@index']);
-Route::post('/milestone/store' ,['as'=>'milestone.store', 'uses'=>'milestoneController@store']);
+Route::resource('/milestone' ,'milestoneController');
+
 /**
  * routes for team
  */
-Route::get('/team/index' ,['as'=>'team.index', 'uses'=>'teamController@index']);
-Route::post('/team/store' ,['as'=>'team.store', 'uses'=>'teamController@store']);
+Route::resource('/team' ,'teamController');
+
 
 /**
  * user management

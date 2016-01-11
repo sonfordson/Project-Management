@@ -61,9 +61,14 @@ class teamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
-        return view('team.show');
+
+      $teams = Team::findOrFail($id);
+
+        //=  Project::first()->teams()->get();
+
+        return view('team.show', compact('teams', $teams));
     }
 
     /**
@@ -74,7 +79,9 @@ class teamController extends Controller
      */
     public function edit($id)
     {
-        //
+        $teams = Team::find($id);
+
+        return view('team.edit', compact('teams', $teams));
     }
 
     /**

@@ -19,7 +19,7 @@
 
                 <tr>
                     <td>{{ $project->id }}</td>
-                    <td><a href=" /project/{{ $project->id }}">{{ $project->title }}</a></td>
+                    <td><a href="/project/{{ $project->id }}">{{ $project->title }}</a></td>
                     <td>{{ $project->description }}</td>
                     <td>{{ $project->project_status }}</td>
                     <td>{{ $project->due_date }}</td>

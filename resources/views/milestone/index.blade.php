@@ -22,12 +22,12 @@
 
                 <div class="row">
 
-                    <section class="col-lg-8 connectedSortable">
+                    <section class="col-lg-6 connectedSortable">
 
                         @include('milestone.table')
 
                     </section>
-                 <section class="col-lg-4 connectedSortable">
+                 <section class="col-lg-6 onnectedSortable">
 
                         @include('milestone.form')
                         </section>
