@@ -112,7 +112,7 @@ class milestoneController extends Controller
 
         Session::flash('message', 'Successfully updated  Milestone!');
         return Redirect::back();
-        ;
+
 
     }
 

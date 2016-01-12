@@ -21,7 +21,7 @@
 
                 <section class="content-header">
                     <h1>
-                        PROJECT
+                        MILESTONE
                         <small>List of all Milestones</small>
                     </h1>
 
@@ -42,7 +42,10 @@
                         </div><!-- /.box-body -->
                         <div class="box-footer">
                             TEAM
+
+
                         </div>
+
                     </div>
                     <br/>
                 </section>

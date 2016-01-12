@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Input;
 use Session;
 use Redirect;
+use Validator;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class projectsController extends Controller
 {
@@ -47,16 +49,32 @@ class projectsController extends Controller
 
     public function store(Request $request)
     {
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'project_status ' => 'required',
+            'architecture ' => 'required',
+            'platforms  ' => 'required',
+            'non_functional_requirements' => 'required',
+            'due_date' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/project')
+                ->withErrors($validator);
+        }
+
         $project = new Project;
-        $project->title = Input::get('title');
-        $project->description = Input::get('description');
-        $project->project_status = Input::get('project_status');
-        $project->architecture = Input::get('architecture');
-        $project->platforms = Input::get('platforms');
+        $project->title                       = Input::get('title');
+        $project->description                 = Input::get('description');
+        $project->project_status              = Input::get('project_status');
+        $project->architecture                = Input::get('architecture');
+        $project->platforms                   = Input::get('platforms');
         $project->non_functional_requirements = Input::get('non_functional_requirements');
-        $project->due_date = Carbon::now();
-        $project->user_id = 1;
-        //dd($project);
+        $project->due_date                    = Carbon::now();
+        $project->user_id                     = 1 ;
+        dd($project);
         $project->save();
 
         Session::flash('message', 'Successfully Added a New Project!');
@@ -115,7 +133,7 @@ class projectsController extends Controller
         $project->platforms = Input::get('platforms');
         $project->non_functional_requirements = Input::get('non_functional_requirements');
         $project->due_date = Carbon::now();
-        $project->user_id = 1;
+        $project->user_id = Auth::user()->id;
        // dd($project);
         $project->save();
 

@@ -31,7 +31,12 @@
                                    PROJECT
                                     <small>List of all Projects</small>
                                 </h1>
-
+                                <div class="box-header with-border">
+                                    <h3 class="box-title btn btn-success">Add New Milestone</h3>
+                                </div>
+                                <div class="box-header with-border">
+                                    <h3 class="box-title btn btn-success">Add New Milestone</h3>
+                                </div>
                             </section>
 
                             <!-- Main content -->
@@ -51,14 +56,16 @@
                                     </div><!-- /.box-body -->
                                     <div class="box-footer">
                                         TEAM
+
                                     </div><!-- /.box-footer-->
+
                                 </div><!-- /.box -->
 
 
 
 
 
-                            <br/>
+                            <br/><br/><br/>
 
 
 
