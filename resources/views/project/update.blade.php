@@ -5,7 +5,7 @@
         <h3 class="box-title btn btn-success">Update New Project</h3>
     </div>
 
-    <form class="form-horizontal" action="{{ route('project.update', ['project' => $projects->id]) }}"  method="POST">
+    <form class="form-horizontal update-project" action="{{ route('project.update', ['project' => $projects->id]) }}"  method="POST">
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="box-body">

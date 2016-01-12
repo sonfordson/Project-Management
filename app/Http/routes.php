@@ -6,20 +6,21 @@ Route::get('/', function () {
 });
 
 //Route::get('/profile', ['middleware' => 'auth', function () {
-    /**
-     * routes for project
-     */
-    Route::resource('/project', 'projectsController');
+/**
+ * routes for milestone
+ */
+Route::resource('/milestone', 'milestoneController');
 
-    /**
-     * routes for milestone
-     */
-    Route::resource('/milestone', 'milestoneController');
+/**
+ * routes for team
+ */
+Route::resource('/team', 'teamController');
 
-    /**
-     * routes for team
-     */
-    Route::resource('/team', 'teamController');
+/**
+ * routes for project
+ */
+Route::resource('/project', 'projectsController');
+
 
 //}]);
 /**

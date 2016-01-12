@@ -5,7 +5,7 @@
     <div class="box-header with-border">
         <h3 class="box-title btn btn-success">Update Milestone</h3>
     </div>
-    <form class="form-horizontal" action="{{ route('milestone.update', ['milestone' => $milestones->id]) }}"  method="POST">
+    <form class="form-horizontal update-milestone" action="{{ route('milestone.update', ['milestone' => $milestones->id]) }}"  method="POST">
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="box-body">

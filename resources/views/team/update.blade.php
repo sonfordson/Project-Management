@@ -3,7 +3,7 @@
     <div class="box-header with-border">
         <h3 class="box-title btn btn-success">Update Team</h3>
     </div>
-    <form class="form-horizontal" action="{{ route('team.update', ['team' => $teams->id]) }}"  method="POST">
+    <form class="form-horizontal update-team" action="{{ route('team.update', ['team' => $teams->id]) }}"  method="POST">
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="box-body">

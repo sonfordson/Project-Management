@@ -49,33 +49,24 @@ class projectsController extends Controller
 
     public function store(Request $request)
     {
+//
+//        $validator = Validator::make($request->all(), [
+//            'title' => 'required|max:255',
+//            'description' => 'required',
+//            'project_status ' => 'required',
+//            'architecture ' => 'required',
+//            'platforms  ' => 'required',
+//            'non_functional_requirements' => 'required'
+////            '''due_date' => 'required'
+//        ]);
+//
+//        if ($validator->fails()) {
+//            return redirect('/project')
+//                ->withErrors($validator);
+//        }
 
-        $validator = Validator::make($request->all(), [
-            'title' => 'required|max:255',
-            'description' => 'required',
-            'project_status ' => 'required',
-            'architecture ' => 'required',
-            'platforms  ' => 'required',
-            'non_functional_requirements' => 'required',
-            'due_date' => 'required'
-        ]);
-
-        if ($validator->fails()) {
-            return redirect('/project')
-                ->withErrors($validator);
-        }
-
-        $project = new Project;
-        $project->title                       = Input::get('title');
-        $project->description                 = Input::get('description');
-        $project->project_status              = Input::get('project_status');
-        $project->architecture                = Input::get('architecture');
-        $project->platforms                   = Input::get('platforms');
-        $project->non_functional_requirements = Input::get('non_functional_requirements');
-        $project->due_date                    = Carbon::now();
-        $project->user_id                     = 1 ;
-        dd($project);
-        $project->save();
+        $inputs = $request->all();
+        $project = Project::create($inputs);
 
         Session::flash('message', 'Successfully Added a New Project!');
 
@@ -123,23 +114,32 @@ class projectsController extends Controller
      */
     public function update($id, Request $request)
     {
+        $input = Input::all();
+        $validation = Validator::make($input, User::$rules);
+
+        if ($validation->passes())
+        {
+            Project::create($input);
+
+            Session::flash('message', 'Successfully updated Project!');
+            return Redirect::back();
+        }
 
 
-        $project = Project::find($id);
-        $project->title = Input::get('title');
-        $project->description = Input::get('description');
-        $project->project_status = Input::get('project_status');
-        $project->architecture = Input::get('architecture');
-        $project->platforms = Input::get('platforms');
-        $project->non_functional_requirements = Input::get('non_functional_requirements');
-        $project->due_date = Carbon::now();
-        $project->user_id = Auth::user()->id;
-       // dd($project);
-        $project->save();
-
-        Session::flash('message', 'Successfully updated Project!');
-        return Redirect::back();
-        //return redirect()->route('project.index');
+//        $project = Project::find($id);
+//        $project->title = Input::get('title');
+//        $project->description = Input::get('description');
+//        $project->project_status = Input::get('project_status');
+//        $project->architecture = Input::get('architecture');
+//        $project->platforms = Input::get('platforms');
+//        $project->non_functional_requirements = Input::get('non_functional_requirements');
+//        $project->due_date = Carbon::now();
+//        $project->user_id = Auth::user()->id;
+//       // dd($project);
+//        $project->save();
+//
+//
+//        //return redirect()->route('project.index');
     }
 
     /**
@@ -150,7 +150,8 @@ class projectsController extends Controller
      */
     public function destroy($id)
     {
-        Project::find(1);
+        $projects = Project::find($id);
+        $projects->delete();
         return view('project.index');
 
     }

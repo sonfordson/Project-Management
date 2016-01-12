@@ -4,7 +4,7 @@
     <div class="box-header with-border">
         <h3 class="box-title btn btn-success">Add New Team</h3>
     </div>
-    <form class="form-horizontal"  action="{{ route('team.store') }}" method="post" >
+    <form class="form-horizontal insert-team"  action="{{ route('team.store') }}" method="post" >
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="box-body">
 

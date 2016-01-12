@@ -105,7 +105,7 @@ class milestoneController extends Controller
         $milestones->milestone_status            = Input::get('milestone_status');
         $milestones->project_id                  = 1;
         $milestones->start_date                  = Carbon::now();
-        $milestones->end_date                    =  Carbon::now();
+        $milestones->end_date                    = Carbon::now();
 
         //dd($milestones);
         $milestones->save();

@@ -3,7 +3,7 @@
         <h3 class="box-title btn btn-success">Add New Project</h3>
 
     </div>
-    <form class="form-horizontal" action="{{ route('project.store') }}" method="post">
+    <form class="form-horizontal insert-project" action="{{ route('project.store') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="box-body">
            <div class="form-group {{ $errors->has('project_status') ? ' has-error' : '' }}">
@@ -66,13 +66,13 @@
                      @endif
                 </div>
             </div>
-            <div class="form-group {{ $errors->has('due_date') ? ' has-error' : '' }}">
+            <div class="form-group">
                 <label for="due-date" class="col-sm-2 control-label">Due date</label>
                 <div class="col-sm-10">
                     <input type="date" name="due-date" class="form-control" id="due-date">
-                     @if ($errors->has('due_date'))
-                    <span class="help-block">{{ $errors->first('due_date') }}</span>
-                     @endif
+                     {{--@if ($errors->has('due_date'))--}}
+                    {{--<span class="help-block">{{ $errors->first('due_date') }}</span>--}}
+                     {{--@endif--}}
                 </div>
             </div>
 
