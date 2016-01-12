@@ -1,6 +1,3 @@
-@if(Session::has('message'))
-    <p class="alert alert-success">{{ Session::get('message') }}</p>
-@endif
 
 <div class="box box-info">
     <div class="box-header with-border">
