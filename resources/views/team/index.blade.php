@@ -19,9 +19,7 @@
             </section>
 
             <section class="content">
-                @if(Session::has('message'))
-                    <p class="alert alert-success">{{ Session::get('message') }}</p>
-                @endif
+                @include('layouts.partials.flash')
                 <div class="row">
 
                     <section class="col-lg-6 connectedSortable">

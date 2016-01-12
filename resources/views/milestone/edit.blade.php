@@ -23,6 +23,7 @@
                 <div class="row">
 
                     <section class="col-lg-12 connectedSortable">
+                        @include('layouts.partials.flash')
 
                         @include('milestone.update')
                     </section>

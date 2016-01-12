@@ -20,14 +20,17 @@
 
             <section class="content">
 
+
                 <div class="row">
 
-                    <section class="col-lg-12 connectedSortable">
+                        <section class="col-lg-12 connectedSortable">
 
-                        @include('project.update')
+                            @include('layouts.partials.flash')
+
+                            @include('project.update')
 
 
-                    </section>
+                        </section>
 
                 </div>
 
