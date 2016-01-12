@@ -9,15 +9,15 @@
         <div class="box-body">
 
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="Title">
+                    <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="Name">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
                 <div class="col-sm-10">
-                    <textarea type="text" name="roles" class="form-control" id="inputPassword3" placeholder="Description"></textarea>
+                    <input type="text" name="roles" class="form-control" id="inputPassword3" placeholder="Role">
                 </div>
             </div>
 
