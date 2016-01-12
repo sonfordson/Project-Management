@@ -18,7 +18,7 @@
                 </ol>
             </section>
             <section class="content">
-            <!-- Content Header (Page header) -->
+
                 <section class="content-header">
                     <h1>
                         PROJECT
@@ -42,10 +42,9 @@
                         </div><!-- /.box-body -->
                         <div class="box-footer">
                             TEAM
-                        </div><!-- /.box-footer-->
-                    </div><!-- /.box -->
+                        </div>
+                    </div>
                     <br/>
-
                 </section>
              </section>
 

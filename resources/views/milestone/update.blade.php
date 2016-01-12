@@ -1,3 +1,6 @@
+@if(Session::has('message'))
+    <p class="alert alert-success">{{ Session::get('message') }}</p>
+@endif
 <div class="box box-info">
     <div class="box-header with-border">
         <h3 class="box-title btn btn-success">Update Milestone</h3>
@@ -21,7 +24,7 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Milestone Status</label>
                 <div class="col-sm-10">
-                    <select name="project_status"  class="form-control" id="status" value="">
+                    <select name="milestone_status"  class="form-control" id="status" value="">
                         <option value="{!!$milestones->milestone_status !!}">{!! $milestones->milestone_status !!}</option>
                         <option value="Upcoming">Upcoming</option>
                         <option value="Active">Active</option>
@@ -32,19 +35,19 @@
             <div class="form-group">
                 <label for="due-date" class="col-sm-2 control-label">Start date</label>
                 <div class="col-sm-10">
-                    <input type="date" name="start-date" class="form-control" value="{!! $milestones->start_date!!}" id="due-date">
+                    <input type="date" name="start_date" class="form-control" value="{!! $milestones->start_date!!}" id="due-date">
                 </div>
             </div>
             <div class="form-group">
                 <label for="due-date" class="col-sm-2 control-label">End date</label>
                 <div class="col-sm-10">
-                    <input type="date" name="end-date" class="form-control" id="due-date" value="{!! $milestones->end_date!!}">
+                    <input type="date" name="end_date" class="form-control" id="due-date" value="{!! $milestones->end_date!!}">
                 </div>
             </div>
         </div>
         <div class="box-footer">
             <button type="submit" class="btn btn-default">Cancel</button>
-            <button type="submit" class="btn btn-info pull-right">Create</button>
+            <button type="submit" class="btn btn-info pull-right">Update</button>
         </div>
     </form>
 </div>

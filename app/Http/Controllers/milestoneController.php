@@ -10,6 +10,8 @@ use App\Milestone;
 use App\Team;
 use Input;
 use Carbon\Carbon;
+use Session;
+use Redirect;
 use App\Http\Controllers\Controller;
 
 class milestoneController extends Controller
@@ -52,11 +54,11 @@ class milestoneController extends Controller
         $milestone->project_id                  = 1;
         $milestone->start_date                  = Carbon::now();
         $milestone->end_date                    =  Carbon::now();
-
         //dd($milestone);
         $milestone->save();
 
-        return redirect()->route('milestone.index')->with('info','Your Project has been created successfully');
+        Session::flash('message', 'Successfully Added New  Milestone!');
+        return Redirect::back();
 
     }
 
@@ -97,7 +99,21 @@ class milestoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $milestones = new Milestone();
+        $milestones->title                       = Input::get('title');
+        $milestones->description                 = Input::get('description');
+        $milestones->milestone_status            = Input::get('milestone_status');
+        $milestones->project_id                  = 1;
+        $milestones->start_date                  = Carbon::now();
+        $milestones->end_date                    =  Carbon::now();
+
+        //dd($milestones);
+        $milestones->save();
+
+        Session::flash('message', 'Successfully updated  Milestone!');
+        return Redirect::back();
+        ;
+
     }
 
     /**

@@ -21,7 +21,7 @@
             <section class="content">
 
                 <div class="row">
-
+                   
                     <section class="col-lg-12 connectedSortable">
 
                         @include('team.update')

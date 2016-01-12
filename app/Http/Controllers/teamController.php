@@ -9,6 +9,8 @@ use App\Project;
 use App\Team;
 use App\Milestone;
 use Input;
+use Session;
+use Redirect;
 use App\Http\Controllers\Controller;
 
 class teamController extends Controller
@@ -51,8 +53,8 @@ class teamController extends Controller
        
         //dd($milestone);
         $team->save();
-
-        return redirect()->route('team.index')->with('info','Your Project has been created successfully');
+        Session::flash('message', 'Successfully Added New Team!');
+        return Redirect::back();
     }
 
     /**
@@ -93,7 +95,20 @@ class teamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+
+        $teams = Team::find($id);
+        $teams->name = Input::get('name');
+        $teams->roles = Input::get('roles');
+        $teams->project_id = 1;
+        $teams->user_id = 1;
+        // dd($project);
+        $teams->save();
+
+        Session::flash('message', 'Successfully updated Team!');
+        return Redirect::back();
+
     }
 
     /**
