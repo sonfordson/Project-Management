@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Sonford\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Project;
-use App\Team;
-use App\Milestone;
+use Sonford\Http\Requests;
+use Sonford\Project;
+use Sonford\Team;
+use Sonford\Milestone;
 use Input;
 use Session;
 use Redirect;
-use App\Http\Controllers\Controller;
+use Sonford\Http\Controllers\Controller;
 
 class teamController extends Controller
 {

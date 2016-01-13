@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Sonford\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Project;
-use App\Milestone;
-use App\Team;
+use Sonford\Http\Requests;
+use Sonford\Project;
+use Sonford\Milestone;
+use Sonford\Team;
 use Input;
 use Carbon\Carbon;
 use Session;
 use Redirect;
-use App\Http\Controllers\Controller;
+use Sonford\Http\Controllers\Controller;
 
 class milestoneController extends Controller
 {

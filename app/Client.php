@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace Sonford;
 
-use App\Project;
-use App\Team;
+use Sonford\Project;
+use Sonford\Team;
 use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model

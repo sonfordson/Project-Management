@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Sonford\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests;
-use App\Project;
+use Sonford\Http\Controllers\Controller;
+use Sonford\Http\Requests;
+use Sonford\Project;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -66,6 +66,7 @@ class projectsController extends Controller
 //        }
 
         $inputs = $request->all();
+        $inputs['user_id']=1;
         $project = Project::create($inputs);
 
         Session::flash('message', 'Successfully Added a New Project!');
@@ -114,33 +115,30 @@ class projectsController extends Controller
      */
     public function update($id, Request $request)
     {
-        $input = Input::all();
-        $validation = Validator::make($input, User::$rules);
-
-        if ($validation->passes())
-        {
-            Project::create($input);
-
-            Session::flash('message', 'Successfully updated Project!');
-            return Redirect::back();
-        }
 
 
-//        $project = Project::find($id);
-//        $project->title = Input::get('title');
-//        $project->description = Input::get('description');
-//        $project->project_status = Input::get('project_status');
-//        $project->architecture = Input::get('architecture');
-//        $project->platforms = Input::get('platforms');
-//        $project->non_functional_requirements = Input::get('non_functional_requirements');
+
+      $project = Project::find($id);
+      $project = $project->update($request->all());
+      // $project->title = Input::get('title');
+////        $project->description = Input::get('description');
+////        $project->project_status = Input::get('project_status');
+////        $project->architecture = Input::get('architecture');
+////        $project->platforms = Input::get('platforms');
+////        $project->non_functional_requirements = Input::get('non_functional_requirements');
 //        $project->due_date = Carbon::now();
-//        $project->user_id = Auth::user()->id;
-//       // dd($project);
-//        $project->save();
-//
-//
-//        //return redirect()->route('project.index');
+////        $project->user_id = Auth::user()->id;
+////       // dd($project);
+////        $project->save();
+////
+////
+////        //return redirect()->route('project.index');
+//    }
+
+        Session::flash('message', 'Successfully updated Project!');
+        return Redirect::back();
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -152,7 +150,8 @@ class projectsController extends Controller
     {
         $projects = Project::find($id);
         $projects->delete();
-        return view('project.index');
+        Session::flash('message', 'Successfully Deletd Project!');
+        return Redirect::back();
 
     }
 }

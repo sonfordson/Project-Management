@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace Sonford\Events;
 
 abstract class Event
 {

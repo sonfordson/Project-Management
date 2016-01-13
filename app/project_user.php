@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Sonford;
 
 use Illuminate\Database\Eloquent\Model;
 

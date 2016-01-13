@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Sonford\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Sonford\Http\Requests;
+use Sonford\Http\Controllers\Controller;
 
 class featureController extends Controller
 {

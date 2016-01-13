@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace Sonford;
 
-use App\Auth;
-use App\Project;
-use App\User;
+use Sonford\Auth;
+use Sonford\Project;
+use Sonford\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
